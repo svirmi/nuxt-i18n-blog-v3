@@ -32,10 +32,41 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/content
+    // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    [
+      'nuxt-i18n',
+       {
+         locales: [
+            {
+              code: 'ru',
+              iso: 'ru-RU',
+              name: 'Russian',
+            },
+            {
+              code: 'en',
+              iso: 'en-US',
+              name: 'English',
+            },
+            {
+              code: 'es',
+              iso: 'en-ES',
+              name: 'Español',
+            },
+         ],
+         defaultLocale: 'ru',
+         noPrefixDefaultLocale: true,
+         vueI18n: {
+          fallbackLocale: 'ru',
+          messages: {
+            ru: require('./locales/ru-ru.json'),
+            en: require('./locales/en-us.json'),
+            es: require('./locales/es-es.json'),            
+          },
+        },
+       }
+    ]
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
