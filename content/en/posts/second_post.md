@@ -1,7 +1,7 @@
 ---
-title: The Beginning of the Second
+title: (ENG) The Beginning of the Second
 date: 2020-09-20T22:25:24.197Z
-description: "Empower your NuxtJS application with @nuxt/content module: write
+description: "(ENG) Empower your NuxtJS application with @nuxt/content module: write
   in a content/ directory and fetch your Markdown, JSON, YAML and CSV files
   through a MongoDB like API, acting as a Git-based Headless CMS."
 ---
@@ -18,5 +18,3 @@ Learn how to write your `content/`, supporting Markdown, YAML, CSV and JSON: htt
 Learn how to fetch your content with `$content`: https://content.nuxtjs.org/fetching.
 
 ## Displaying content
-
-Learn how to display your Markdown content with the `<nuxt-content>` component directly in your template: https://content.nuxtjs.org/displaying.

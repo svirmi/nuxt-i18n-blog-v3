@@ -1,25 +1,33 @@
 <template>
-  <div class="">
+  <section class="text-gray-600 body-font overflow-hidden">
+  
+  <p class="">{{ $t('blog-description') }}</p>
 
-    <h1>Blog Posts</h1>
-    <ul>
-      <li v-for="article of articles" :key="article.slug">
-          <div>
-            <h2>{{ article.title }}</h2>
-            <p>by {{ article.date }}</p>
-            <p>{{ article.description }}</p>
-            <p class="text-teal-500 inline-flex items-center mt-4">
-                <nuxt-link :to="`${article.slug}`">
-                  {{ $t('read-more') }} ➚
-                </nuxt-link>
-            </p>
-          </div>
-          <hr>
-      </li>
-    </ul>
+  <div class="container px-5 py-24 mx-auto">
+    <div v-for="article of articles" :key="article.slug" class="-my-8 divide-y-2 divide-gray-100">
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="mt-1 text-gray-500 text-sm">{{ article.date }}</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
+          <p class="leading-relaxed">{{ article.description }}</p>
 
-    <p class="">{{ $t('blog-description') }}</p>
+            <nuxt-link :to="`${article.slug}`" class="text-indigo-500 inline-flex items-center mt-4">
+            
+              {{ $t('read-more') }}
+             
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+             
+             </nuxt-link>
+        </div>
+      </div>
+    </div>
   </div>
+  </section>
 </template>
 
 <script>
@@ -47,55 +55,10 @@ export default {
   },
   head () {
     return {
-      title: this.$i18n.t('read-more')
+      title: this.$i18n.t('blog-description')
     }
   }
 }
 </script>
-
-
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
