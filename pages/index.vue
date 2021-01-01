@@ -1,6 +1,23 @@
 <template>
-  <div class="container">
-    <h2 class="">pages/index.vue</h2>
+  <div class="">
+
+    <h1>Blog Posts</h1>
+    <ul>
+      <li v-for="article of articles" :key="article.slug">
+          <div>
+            <h2>{{ article.title }}</h2>
+            <p>by {{ article.date }}</p>
+            <p>{{ article.description }}</p>
+            <p class="text-teal-500 inline-flex items-center mt-4">
+                <nuxt-link :to="`${article.slug}`">
+                  {{ $t('read-more') }} ➚
+                </nuxt-link>
+            </p>
+          </div>
+          <hr>
+      </li>
+    </ul>
+
     <p class="">{{ $t('blog-description') }}</p>
   </div>
 </template>
@@ -24,9 +41,6 @@ export default {
         return error({ statusCode: 404, message: 'Page not found' })
       }
     }
-
-    console.log(articles)
-
     return {
       articles
     }

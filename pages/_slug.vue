@@ -16,6 +16,12 @@
       const post = await $content(`${app.i18n.locale}/posts`, params.slug).fetch()
 
       return { post }
+    },
+    
+    head () {
+    return {
+      title: this.post.title
     }
+  }
   }
 </script>
