@@ -31,6 +31,10 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
 
+  publicRuntimeConfig: {
+    nuxtLocale: process.env.NUXT_LOCALE || 'ru'
+  },
+
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',

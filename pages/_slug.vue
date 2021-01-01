@@ -1,5 +1,10 @@
 <template>
   <article>
+
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.description }}</p>
+    <p>Article last updated: {{ post.updatedAt }}</p>
+
     <nuxt-content :document="post" />
   </article>
 </template>

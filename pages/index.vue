@@ -2,21 +2,13 @@
   <div class="container">
     <h2 class="">pages/index.vue</h2>
     <p class="">{{ $t('blog-description') }}</p>
-    <nuxt-content :document="articles" class="w-3/4 mx-auto py-6" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Blog',
-  filters: {
-    formatDate () {
-      return new Date()
-    }
-  },
   async asyncData ({ $content, app, params }) {
-    const { slug } = params
-
     let articles
     try {
 
@@ -41,7 +33,7 @@ export default {
   },
   head () {
     return {
-      title: this.$i18n.t('blog.title')
+      title: this.$i18n.t('read-more')
     }
   }
 }
