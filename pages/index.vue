@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-600 body-font overflow-hidden">
+  <section class="body-font overflow-hidden">
   
   <p class="">{{ $t('blog-description') }}</p>
 
@@ -7,7 +7,7 @@
     <div v-for="article of articles" :key="article.slug" class="-my-8 divide-y-2 divide-gray-100">
       <div class="py-8 flex flex-wrap md:flex-nowrap">
         <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-          <span class="mt-1 text-gray-500 text-sm">{{ article.date }}</span>
+          <span class="mt-1 text-gray-800 text-sm">{{ article.date }}</span>
         </div>
         <div class="md:flex-grow">
           <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
