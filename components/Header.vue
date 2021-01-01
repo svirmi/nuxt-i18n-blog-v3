@@ -6,7 +6,7 @@
         <Logo class="w-8 h-8 mr-3" />
         <h1 class="text-lg font-bold text-gray-700">{{ title }}</h1>
       </div>
-    <div class="" v-if="!isContentPage">
+    <div class="">
         <ul class="flex lang-switch justify-around">          
           <li>
             <nuxt-link

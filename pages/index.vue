@@ -2,12 +2,51 @@
   <div class="container">
     <h2 class="">pages/index.vue</h2>
     <p class="">{{ $t('blog-description') }}</p>
+    <nuxt-content :document="articles" class="w-3/4 mx-auto py-6" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Blog',
+  filters: {
+    formatDate () {
+      return new Date()
+    }
+  },
+  async asyncData ({ $content, app, params }) {
+    const { slug } = params
+
+    let articles
+    try {
+
+      articles = await $content(`${app.i18n.locale}/posts`)
+        .sortBy('date', 'asc')
+        .fetch()
+    } catch (error) {
+      try {
+        articles = await $content(`${app.i18n.defaultLocale}/posts`)
+          .sortBy('date', 'desc')
+          .fetch()
+      } catch (error) {
+        return error({ statusCode: 404, message: 'Page not found' })
+      }
+    }
+
+    console.log(articles)
+
+    return {
+      articles
+    }
+  },
+  head () {
+    return {
+      title: this.$i18n.t('blog.title')
+    }
+  }
+}
 </script>
+
 
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
