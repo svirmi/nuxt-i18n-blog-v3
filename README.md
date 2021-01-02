@@ -16,5 +16,5 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-TailwindCSS template [original](https://github.com/davidgrzyb/tailwind-blog-template)
+Live demo [here](https://nuxt-i18n-blog.vercel.app/)
+TailwindCSS template source [original](https://github.com/davidgrzyb/tailwind-blog-template)
