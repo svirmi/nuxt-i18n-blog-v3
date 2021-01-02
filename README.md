@@ -17,7 +17,7 @@ $ yarn start
 $ yarn generate
 ```
 Live demo [here](https://nuxt-i18n-blog.vercel.app/)  
-TailwindCSS template source [original](https://github.com/davidgrzyb/tailwind-blog-template)
+Original TailwindCSS template [source](https://github.com/davidgrzyb/tailwind-blog-template)
 
 
 # inspired by:
@@ -26,3 +26,6 @@ TailwindCSS template source [original](https://github.com/davidgrzyb/tailwind-bl
 
 - https://github.com/alvarosaburido/nuxt-i18n-blog
 - https://alvarosaburido.dev/blog/multi-language-blog-with-nuxt-content
+
+- https://github.com/nuxt-academy/demo-blog-nuxt-content
+
