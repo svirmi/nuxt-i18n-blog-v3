@@ -8,7 +8,7 @@
       <span class="ml-3 text-xl">https://nuxt-i18n-blog.vercel.app</span>
     </a>
     <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 https://github.com/davidgrzyb/tailwind-blog-template —
-      <a href="https://ya.ru" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">https://github.com/davidgrzyb/tailwind-blog-template</a>
+      <a href="https://github.com/davidgrzyb/tailwind-blog-template" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">https://github.com/davidgrzyb/tailwind-blog-template</a>
     </p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
       <a class="text-gray-500">
