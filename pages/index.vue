@@ -1,32 +1,37 @@
 <template>
   <section class="body-font overflow-hidden">
-  
-  <p class="">{{ $t('blog-description') }}</p>
+      <div class="container mx-auto flex flex-wrap py-6">
 
-  <div class="container px-5 py-24 mx-auto">
-    <div v-for="article of articles" :key="article.slug" class="-my-8 divide-y-2 divide-gray-100">
-      <div class="py-8 flex flex-wrap md:flex-nowrap">
-        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-          <span class="mt-1 text-gray-800 text-sm">{{ article.date }}</span>
-        </div>
-        <div class="md:flex-grow">
-          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
-          <p class="leading-relaxed">{{ article.description }}</p>
+        <!-- Posts Section -->
+        <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-            <nuxt-link :to="`${article.slug}`" class="text-indigo-500 inline-flex items-center mt-4">
-            
-              {{ $t('read-more') }}
-             
+            <article v-for="article of articles" :key="article.slug" class="flex flex-col shadow my-4">
+              <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
+                    <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
+                    <p href="#" class="text-sm pb-3">{{ article.date }}</p>
+                    <p href="#" class="pb-6">{{ article.description }}</p>
+
+
+              <nuxt-link :to="`${article.slug}`" class="text-indigo-500 inline-flex items-center mt-4">       
+              {{ $t('read-more') }}             
               <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
-              </svg>
-             
-             </nuxt-link>
-        </div>
-      </div>
-    </div>
+              </svg>             
+              </nuxt-link>
+
+              </div>
+            </article>
+
+        <Pagination />
+
+        </section>
+
+        <Sidebar />
+
   </div>
+
   </section>
 </template>
 
