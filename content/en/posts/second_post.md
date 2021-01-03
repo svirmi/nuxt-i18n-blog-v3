@@ -1,5 +1,5 @@
 ---
-title: (ENG) The Beginning of the Second
+title: (ENG) Title of the Second post
 date: 2020-09-20T22:25:24.197Z
 description: "(ENG) Empower your NuxtJS application with @nuxt/content module: write
   in a content/ directory and fetch your Markdown, JSON, YAML and CSV files
