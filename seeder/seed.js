@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const content_dir = '../content';
-const locale_dirs = ['/ru', '/en', '/es'];
+const locale_dirs = ['/ru/posts', '/en/posts', '/es/posts'];
+const x_posts = 4; // how many posts for each locale
 
 const createDir = (dirPath) => {
   fs.mkdirSync(dirPath, {recursive:true}, (error) => {
@@ -25,17 +26,6 @@ const createFile = (filePath, fileContent) => {
   })
 }
 
-const generateMD = () => {
-
-  const fileContents = `---
-title: "${faker.lorem.words()}"
-date: "${faker.date.past()}"
----
-${faker.lorem.sentence()}`
-
-return fileContents;
-}
-
 const generateFileName = () => {
   const d = faker.date.past()
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -45,52 +35,35 @@ const generateFileName = () => {
   return `${da}-${mo}-${ye}.md`;
 }
 
-if (fs.existsSync(content_dir)) {
-  fs.rmdirSync(content_dir, { recursive: true });
+const generateMD = (locale_dir) => {
+
+  const fileContents = `---
+title: "${locale_dir}     ${faker.lorem.words()}"
+date: "${faker.date.past()}"
+---
+${faker.lorem.sentence()}`
+
+return fileContents;
 }
 
+// re-create content dir if exists
+if (fs.existsSync(path.join(__dirname, content_dir))) {
+  fs.rmdirSync(path.join(__dirname, content_dir), { recursive: true });
+}
+
+// create sub-folders for each locale
 locale_dirs.forEach((locale_dir) => {
-  const dirPath = path.join(__dirname, content_dir, locale_dir, 'posts')
+  const dirPath = path.join(__dirname, content_dir, locale_dir);
   createDir(dirPath);
 });
 
-
-
-
-/*
-var locale_dirs = ['/ru', '/en', '/es']
-var x_posts = 3
-
-dir = path.join(__dirname, dir)
-
-if (fs.existsSync(dir)) {
-    fs.rmdirSync(dir, { recursive: true });
-}
-
-createDir(dir);
-
-locale_dirs.forEach(
-  function(locale) {
-    var locale_dir = path.join(dir, locale)
-    console.log('Create dir ' + locale_dir)
-    createDir(locale_dir)
-  }
-) 
-
+// generate and save markdown files
 for (var i = 0; i < x_posts; i++) {
-  locale_dirs.forEach(
-    generateMD
-  )  
-}
-
-function createDir(dir) {
-  var locale_dir = dir + '/posts'
-  fs.mkdir(locale_dir, function(err) {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log("New directory successfully created.")
-    }
-})
-}
-*/
+  const filename = generateFileName();  
+  
+  locale_dirs.forEach((locale_dir) => {
+    const fullPath = path.join(__dirname, content_dir, locale_dir, filename);   
+    const postContent = generateMD(locale_dir);     
+    createFile(fullPath, postContent);
+  });
+} 
