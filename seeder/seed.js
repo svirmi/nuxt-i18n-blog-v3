@@ -38,7 +38,7 @@ const generateFileName = () => {
 const generateMD = (locale_dir) => {
 
 const fileContents = `---
-title: "${locale_dir} @ ${faker.lorem.words()}"
+title: "(${locale_dir}) :: ${faker.lorem.words()}"
 date: "${faker.date.past()}"
 description: "${faker.lorem.paragraph()}"
 ---
