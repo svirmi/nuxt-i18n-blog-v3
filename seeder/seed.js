@@ -37,11 +37,18 @@ const generateFileName = () => {
 
 const generateMD = (locale_dir) => {
 
-  const fileContents = `---
-title: "${locale_dir}     ${faker.lorem.words()}"
+const fileContents = `---
+title: "${locale_dir} @ ${faker.lorem.words()}"
 date: "${faker.date.past()}"
+description: "${faker.lorem.paragraph()}"
 ---
-${faker.lorem.sentence()}`
+<div class="bg-blue-800 text-white p-4 mb-4">
+${faker.lorem.sentence()}
+</div>  
+
+${faker.lorem.paragraph()}  
+![${faker.random.word()}](${faker.random.image()})  
+${faker.lorem.paragraphs(3)}  `  
 
 return fileContents;
 }
