@@ -15,6 +15,9 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+# to generate markdown files run
+$ node seeder/seed.js
 ```
 Live demo [here](https://nuxt-i18n-blog.vercel.app/)  
 Original TailwindCSS template [source](https://github.com/davidgrzyb/tailwind-blog-template)
