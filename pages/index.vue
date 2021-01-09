@@ -5,7 +5,7 @@
         <!-- Posts Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-            <article v-for="article of articles" :key="article.slug" class="flex flex-col shadow my-4">              
+            <article v-for="article of paginatedArticles" :key="article.slug" class="flex flex-col shadow my-4">              
               <div class="bg-white flex flex-col justify-start p-6">
                     <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
                     <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
@@ -23,7 +23,9 @@
               </div>
             </article>
 
-        <Pagination />
+            <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">
+              <Pagination v-if="total > 5" :total="total" />
+            </div>
 
         </section>
 
@@ -35,33 +37,37 @@
 </template>
 
 <script>
+import getContent from "@/utils/getContent";
+
 export default {
   name: 'Blog',
   async asyncData ({ $content, app, params }) {
-    let articles
-    try {
-      articles = await $content(`${app.i18n.locale}/posts`)
-        .sortBy('date', 'desc')
-        .fetch()
-    } catch (error) {
-      try {
-        articles = await $content(`${app.i18n.defaultLocale}/posts`)
-          .sortBy('date', 'desc')
-          .fetch()
-      } catch (error) {
-        return error({ statusCode: 404, message: 'Page not found' })
-      }
-    }
+
+    const content = await getContent($content, app, params);
+
     return {
-      articles
-    }
+      allArticles: content.allArticles,
+      paginatedArticles: content.paginatedArticles,
+    };
+
   },
   head () {
     return {
       title: this.$i18n.t('blog-description')
     }
-  }
+  },
+
+  computed: {
+    total: function() {
+      return 7;
+    }
+  },
+
+   props: {
+    total: {
+      type: Number,
+      default: 0,
+    },
+  },
 }
 </script>
-<style>
-</style>
