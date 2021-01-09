@@ -20,7 +20,8 @@ export default {
     ArticleList,
   },
   async asyncData({ $content, params }) {
-    const articles = await $content('articles')
+    const source = `${app.i18n.locale}/articles`;
+    const articles = await $content(source)
       .only(['title', 'description', 'image', 'slug', 'published', 'tags'])
       .sortBy('published', 'desc')
       .fetch();

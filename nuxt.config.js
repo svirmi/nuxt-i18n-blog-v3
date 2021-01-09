@@ -56,8 +56,6 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
@@ -68,6 +66,38 @@ export default {
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
+    [
+      'nuxt-i18n',
+       {
+         locales: [
+            {
+              code: 'ru',
+              iso: 'ru-RU',
+              name: 'Russian',
+            },
+            {
+              code: 'en',
+              iso: 'en-US',
+              name: 'English',
+            },
+            {
+              code: 'es',
+              iso: 'en-ES',
+              name: 'Español',
+            },
+         ],
+         defaultLocale: 'ru',
+         noPrefixDefaultLocale: true,
+         vueI18n: {
+          fallbackLocale: 'ru',
+          messages: {
+            ru: require('./translations/ru.json'),
+            en: require('./translations/en.json'),
+            es: require('./translations/es.json'),            
+          },
+        },
+       }
+    ]
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)

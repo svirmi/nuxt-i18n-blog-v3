@@ -1,9 +1,9 @@
-export default async ($content, params, error) => {
+export default async ($content, app, params, error) => {
   const currentPage = parseInt(params.page);
 
   const perPage = 5;
 
-  const allArticles = await $content('articles').fetch();
+  const allArticles = await $content(`${app.i18n.locale}/articles`).fetch();
 
   const totalArticles = allArticles.length;
 
@@ -23,7 +23,7 @@ export default async ($content, params, error) => {
     return (currentPage - 1) * perPage;
   };
 
-  const paginatedArticles = await $content('articles')
+  const paginatedArticles = await $content(`${app.i18n.locale}/articles`)
     .only(['title', 'description', 'image', 'slug', 'published'])
     .sortBy('published', 'desc')
     .limit(perPage)

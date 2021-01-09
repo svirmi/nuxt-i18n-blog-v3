@@ -21,7 +21,7 @@ export default {
     ArticleList,
   },
   async asyncData({ $content, app, params, error }) {
-    const content = await getContent($content, params, error);
+    const content = await getContent($content, app, params, error);
     return {
       allArticles: content.allArticles,
       paginatedArticles: content.paginatedArticles,
@@ -34,7 +34,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: `${this.$config.baseUrl}/articles/page/${this.$route.params.page}`,
+          href: `${this.$config.baseUrl}${app.i18n.locale}/articles/page/${this.$route.params.page}`,
         },
       ],
     };

@@ -6,8 +6,8 @@
         :key="article.slug"
         class="mb-12 bg-white p-5 rounded shadow"
       >
-        <NuxtLink
-          :to="{ name: 'articles-slug', params: { slug: article.slug } }"
+        <nuxt-link
+          :to="localePath({ name: 'articles-slug', params: { slug: article.slug } })"
           class="md:grid md:gap-4 md:grid-cols-2"
         >
           <img
@@ -22,10 +22,10 @@
             </h2>
             <p class="text-lg">{{ article.description }}</p>
             <p class="font-bold text-indigo-600 mt-2">
-              Read more<span class="text-indigo-600">&hellip;</span>
+              {{ $t('read-more') }}<span class="text-indigo-600">&hellip;</span>
             </p>
           </div>
-        </NuxtLink>
+        </nuxt-link>
       </li>
     </ul>
     <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">

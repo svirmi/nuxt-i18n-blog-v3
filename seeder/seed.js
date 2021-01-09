@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const content_dir = '../content';
-const locale_dirs = ['/ru/posts', '/en/posts', '/es/posts'];
+const locale_dirs = ['/ru/articles', '/en/articles', '/es/articles'];
 const x_posts = 4; // how many posts for each locale
 
 const createDir = (dirPath) => {
@@ -41,6 +41,9 @@ const fileContents = `---
 title: "(${locale_dir}) :: ${faker.lorem.words()}"
 date: "${faker.date.past().toISOString()}"
 description: "${faker.lorem.paragraphs(2)}"
+image: 'https://res.cloudinary.com/redfern-web/image/upload/v1599840408/redfern-dev/png/nuxt.png'
+tags: ['VueJS', 'Nuxt']
+published: '2021-01-09'
 ---
 <div class="bg-blue-800 text-white p-4 mb-4">
 ${faker.lorem.sentence()}

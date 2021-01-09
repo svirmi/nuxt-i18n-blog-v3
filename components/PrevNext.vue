@@ -1,20 +1,20 @@
 <template>
   <div v-if="prev || next" class="flex justify-between">
-    <NuxtLink
+    <nuxt-link
       v-if="prev"
-      :to="{ name: 'articles-slug', params: { slug: prev.slug } }"
+      :to="localePath({ name: 'articles-slug', params: { slug: prev.slug } })"
       :class="linkStyles"
     >
       {{ prev.title }}
-    </NuxtLink>
+    </nuxt-link>
     <span v-else>&nbsp;</span>
-    <NuxtLink
+    <nuxt-link
       v-if="next"
-      :to="{ name: 'articles-slug', params: { slug: next.slug } }"
+      :to="localePath({ name: 'articles-slug', params: { slug: next.slug } })"
       :class="linkStyles"
     >
       {{ next.title }}
-    </NuxtLink>
+    </nuxt-link>
     <span v-else>&nbsp;</span>
   </div>
 </template>

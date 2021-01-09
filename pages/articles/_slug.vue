@@ -11,7 +11,7 @@
           <ul class="flex">
             <li v-for="tag in article.tags" :key="tag" class="mr-2">
               <nuxt-link
-                :to="{ name: 'tags-tag', params: { tag: tag.toLowerCase() } }"
+                :to="localePath({ name: 'tags-tag', params: { tag: tag.toLowerCase() } })"
                 class="hover:underline"
               >
                 {{ tag }}
@@ -36,10 +36,11 @@ import getSiteMeta from '@/utils/getSiteMeta';
 
 export default {
   name: 'ArticlePage',
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch();
+  async asyncData({ $content, app, params }) {
+    const source = `${app.i18n.locale}/articles`;
+    const article = await $content(source, params.slug).fetch();
 
-    const [prev, next] = await $content('articles')
+    const [prev, next] = await $content(source)
       .only(['title', 'slug', 'published'])
       .sortBy('published', 'desc')
       .surround(params.slug)
