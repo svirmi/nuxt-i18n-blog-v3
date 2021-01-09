@@ -21,7 +21,7 @@ export default {
     ArticleList,
   },
   async asyncData({ $content, app, params, error }) {
-    const content = await getContent($content, params, error);
+    const content = await getContent($content, app, params, error);
     return {
       allArticles: content.allArticles,
       paginatedArticles: content.paginatedArticles,
