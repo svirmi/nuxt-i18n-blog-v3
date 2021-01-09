@@ -32,7 +32,6 @@ Original TailwindCSS template [source](https://github.com/davidgrzyb/tailwind-bl
 
 - https://github.com/nuxt-academy/demo-blog-nuxt-content
 - https://redfern.dev/articles/adding-pagination-nuxt-content-blog
-- https://github.com/garethredfern/nuxt-basic-blog
-
+- https://github.com/garethredfern/nuxt-basic-blog  <-- pagination taken from here
 - https://gist.github.com/kt2763/c412ab5caa4d4c0c8a9c752bc4b9fe1b (pagination)
 
