@@ -9,8 +9,8 @@
               <div class="bg-white flex flex-col justify-start p-6">
                     <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
                     <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ article.title }}</h2>
-                    <p href="#" class="text-sm pb-3">{{ article.date }}</p>
-                    <p href="#" class="pb-6">{{ article.description }}</p>
+                    <p class="text-sm pb-3">{{ article.date }}</p>
+                    <p class="pb-6">{{ article.description }}</p>
 
               <nuxt-link :to="localePath({ name: 'slug', params: { slug: article.slug } })" class="text-indigo-500 inline-flex items-center mt-4">
               {{ $t('read-more') }}             
@@ -40,9 +40,8 @@ export default {
   async asyncData ({ $content, app, params }) {
     let articles
     try {
-
       articles = await $content(`${app.i18n.locale}/posts`)
-        .sortBy('date', 'asc')
+        .sortBy('date', 'desc')
         .fetch()
     } catch (error) {
       try {
