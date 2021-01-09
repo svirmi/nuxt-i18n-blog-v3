@@ -6,7 +6,7 @@
 
     <nuxt-link
       v-else
-      :to="{ name: 'articles-page-page', params: { page: 1 } }"
+      :to="{ name: 'pages-page', params: { page: 1 } }"
       :class="buttonStyles"
     >
       <span class="hidden sm:inline">First</span>
@@ -30,7 +30,7 @@
 
     <nuxt-link
       v-else
-      :to="{ name: 'articles-page-page', params: { page: nextPage } }"
+      :to="`/page/${nextPage}`"
       :class="buttonStyles"
     >
       <span class="hidden sm:inline">Next</span>
@@ -42,7 +42,7 @@
 
     <nuxt-link
       v-else
-      :to="{ name: 'articles-page-page', params: { page: totalPages } }"
+      :to="`/page/${totalPages}`"
       :class="buttonStyles"
     >
       <span class="hidden sm:inline">Last</span>

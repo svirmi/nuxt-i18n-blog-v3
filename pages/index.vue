@@ -63,11 +63,11 @@ export default {
     }
   },
 
-   props: {
-    total: {
-      type: Number,
-      default: 0,
-    },
-  },
+  //  props: {
+  //   total: {
+  //     type: Number,
+  //     default: 0,
+  //   },
+  // },
 }
 </script>
