@@ -2,18 +2,21 @@
   <div class="grid gap-4 grid-cols-4">
     <div v-if="currentPage === 1" :class="disabledStyle">
       <span class="hidden sm:inline">First</span>
+      <SingleBack />
     </div>
 
     <nuxt-link
       v-else
-      :to="{ name: 'pages-page', params: { page: 1 } }"
+      :to="{ name: 'articles-page-page', params: { page: 1 } }"
       :class="buttonStyles"
     >
+      <DoubleBack />
       <span class="hidden sm:inline">First</span>
     </nuxt-link>
 
     <div v-if="currentPage === 1" :class="disabledStyle">
       <span class="hidden sm:inline">Prev</span>
+      <SingleBack />
     </div>
 
     <nuxt-link
@@ -21,39 +24,54 @@
       :to="{ name: 'articles-page-page', params: { page: prevPage } }"
       :class="buttonStyles"
     >
+      <SingleBack />
       <span class="hidden sm:inline">Prev</span>
     </nuxt-link>
 
     <div v-if="currentPage === totalPages" :class="disabledStyle">
       <span class="hidden sm:inline">Next</span>
+      <SingleFwd />
     </div>
 
     <nuxt-link
       v-else
-      :to="`/page/${nextPage}`"
+      :to="{ name: 'articles-page-page', params: { page: nextPage } }"
       :class="buttonStyles"
     >
       <span class="hidden sm:inline">Next</span>
+      <SingleFwd />
     </nuxt-link>
 
     <div v-if="currentPage === totalPages" :class="disabledStyle">
       <span class="hidden sm:inline">Last</span>
+      <DoubleFwd />
     </div>
 
     <nuxt-link
       v-else
-      :to="`/page/${totalPages}`"
+      :to="{ name: 'articles-page-page', params: { page: totalPages } }"
       :class="buttonStyles"
     >
       <span class="hidden sm:inline">Last</span>
+      <DoubleFwd />
     </nuxt-link>
   </div>
 </template>
 
 <script>
+import DoubleFwd from '@/components/svg/DoubleFwd';
+import DoubleBack from '@/components/svg/DoubleBack';
+import SingleFwd from '@/components/svg/SingleFwd';
+import SingleBack from '@/components/svg/SingleBack';
 
 export default {
   name: 'Pagination',
+  components: {
+    DoubleFwd,
+    DoubleBack,
+    SingleFwd,
+    SingleBack,
+  },
   props: {
     total: {
       type: Number,

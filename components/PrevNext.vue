@@ -1,43 +1,41 @@
 <template>
-  <div class="w-full flex pt-6 items-center">
-      
+  <div v-if="prev || next" class="flex justify-between">
     <NuxtLink
       v-if="prev"
-      :to="{ name: '', params: { slug: prev.slug } }"
-      class="w-1/2 bg-white shadow hover:shadow-md text-left p-6"
+      :to="{ name: 'articles-slug', params: { slug: prev.slug } }"
+      :class="linkStyles"
     >
-        <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
-        <p class="pt-2">{{ prev.title }}</p>                
+      {{ prev.title }}
     </NuxtLink>
-
     <span v-else>&nbsp;</span>
-
     <NuxtLink
       v-if="next"
-      :to="{ name: '', params: { slug: next.slug } }"
-      class="w-1/2 bg-white shadow hover:shadow-md text-right p-6"
+      :to="{ name: 'articles-slug', params: { slug: next.slug } }"
+      :class="linkStyles"
     >
-        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
-        <p class="pt-2">{{ next.title }}</p>      
+      {{ next.title }}
     </NuxtLink>
-
     <span v-else>&nbsp;</span>
-
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      prev: {
-        type: Object,
-        default: () => null
-      },
-      next: {
-        type: Object,
-        default: () => null
-      }
-    }
-  }
+export default {
+  name: 'PrevNext',
+  props: {
+    prev: {
+      type: Object,
+      default: null,
+    },
+    next: {
+      type: Object,
+      default: null,
+    },
+  },
+  computed: {
+    linkStyles() {
+      return 'bg-indigo-400 text-white px-4 py-1 hover:bg-indigo-500 transform duration-500 ease-in-out';
+    },
+  },
+};
 </script>
-
