@@ -1,7 +1,5 @@
 <template>
-  <!-- Posts Section -->
   <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
   <article
       v-for="article of articles"
       :key="article.slug" 
