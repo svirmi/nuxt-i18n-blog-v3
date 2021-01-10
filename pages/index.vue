@@ -1,5 +1,7 @@
 <template>
-  <ArticleList :articles="paginatedArticles" :total="allArticles.length" />
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+      <ArticleList :articles="paginatedArticles" :total="allArticles.length" />
+    </section>
 </template>
 
 <script>

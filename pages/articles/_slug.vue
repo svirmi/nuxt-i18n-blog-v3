@@ -1,4 +1,6 @@
 <template>
+  <!-- Post Section -->
+  <section class="w-full md:w-2/3 flex flex-col items-center px-3">
   <article>
     <header class="text-white mx-auto text-xs">
       <div class="p-5 bg-indigo-500 md:inline-block">
@@ -28,6 +30,7 @@
       <prev-next :prev="prev" :next="next" />
     </footer>
   </article>
+  </section>
 </template>
 
 <script>

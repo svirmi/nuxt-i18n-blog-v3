@@ -1,37 +1,30 @@
 <template>
-  <div>
-    <ul class="text-gray-500 max-w-5xl mx-auto">
-      <li
-        v-for="article of articles"
-        :key="article.slug"
-        class="mb-12 bg-white p-5 rounded shadow"
-      >
-        <nuxt-link
-          :to="localePath({ name: 'articles-slug', params: { slug: article.slug } })"
-          class="md:grid md:gap-4 md:grid-cols-2"
-        >
-          <img
-            v-if="article.image"
-            :src="article.image"
-            alt=""
-            class="mb-4 border rounded"
-          />
-          <div>
-            <h2 class="font-bold text-gray-900 text-2xl mb-2">
-              {{ article.title }}
-            </h2>
-            <p class="text-lg">{{ article.description }}</p>
-            <p class="font-bold text-indigo-600 mt-2">
-              {{ $t('read-more') }}<span class="text-indigo-600">&hellip;</span>
-            </p>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-    <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">
-      <Pagination v-if="total > 5" :total="total" />
+<div>
+  <article
+      v-for="article of articles"
+      :key="article.slug" 
+      class="flex flex-col shadow my-4"
+  >
+    <div class="bg-white flex flex-col justify-start p-6">
+    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
+    <h2 class="font-bold text-gray-900 text-2xl mb-2">
+      <nuxt-link :to="localePath({ name: 'articles-slug', params: { slug: article.slug } })" class="hover:opacity-75">
+        {{ article.title }}
+      </nuxt-link>
+    </h2>
+    <p class="text-sm pb-3">Published on April 25th, 2020</p>
+    <p class="pb-6">{{ article.description }}</p>
+    <p class="uppercase text-gray-800 hover:text-black">
+      <nuxt-link :to="localePath({ name: 'articles-slug', params: { slug: article.slug } })" class="hover:opacity-75">
+        {{ $t('read-more') }} <i class="fas fa-arrow-right"></i>
+      </nuxt-link>              
+    </p>
     </div>
+  </article>
+  <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">
+     <Pagination v-if="total > 5" :total="total" />
   </div>
+</div>
 </template>
 
 <script>

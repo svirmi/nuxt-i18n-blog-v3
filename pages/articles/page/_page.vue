@@ -1,5 +1,6 @@
 <template>
-  <div>
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+
     <div class="flex justify-center">
       <h2
         class="text-center text-3xl mb-4 uppercase bg-black text-white inline-block mx-auto px-2"
@@ -8,7 +9,7 @@
       </h2>
     </div>
     <ArticleList :articles="paginatedArticles" :total="allArticles.length" />
-  </div>
+  </section>
 </template>
 
 <script>
