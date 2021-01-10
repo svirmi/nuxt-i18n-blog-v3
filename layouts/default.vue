@@ -1,8 +1,10 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
-    <Footer />
+    <div class="container mx-auto flex flex-wrap py-6">
+      <Nuxt />
+      <Sidebar />
+    </div>
   </div>
 </template>
 

@@ -1,21 +1,32 @@
 {
-  "name": "nuxt-i18n-blog-v3",
-  "version": "1.0.1",
+  "name": "nuxt-i18n-blog",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js"
   },
   "dependencies": {
     "@nuxt/content": "^1.9.0",
+    "@nuxtjs/feed": "^2.0.0",
+    "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "nuxt-i18n": "^6.16.0"
+    "nuxt-i18n": "^6.17.0",
+    "prism-themes": "^1.4.0"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
-    "faker": "^5.1.0"
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "faker": "^5.1.0",
+    "prettier": "^2.1.1"
   }
 }
