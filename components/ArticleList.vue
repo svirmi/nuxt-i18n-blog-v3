@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+<div>
   <article
       v-for="article of articles"
       :key="article.slug" 
@@ -24,7 +24,7 @@
   <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">
      <Pagination v-if="total > 5" :total="total" />
   </div>
-  </section>
+</div>
 </template>
 
 <script>
