@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
 /*
  ** TailwindCSS Configuration File
  **
@@ -6,15 +5,12 @@ const defaultTheme = require('tailwindcss/defaultTheme');
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
-      },
-    },
-  },
+  theme: {},
   variants: {},
-  plugins: [require('@tailwindcss/ui'), require('@tailwindcss/typography')],
+  corePlugins: {
+   display: true,
+  },
+  plugins: [],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
@@ -26,4 +22,4 @@ module.exports = {
       'nuxt.config.js',
     ],
   },
-};
+}

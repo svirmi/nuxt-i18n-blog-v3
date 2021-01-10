@@ -12,7 +12,7 @@ export default {
   head: {
     htmlAttrs: {
       lang: 'en-GB',
-      class: 'bg-black',
+      // class: 'bg-black',
     },
     title: 'Nuxt Basic Blog',
     meta: [
