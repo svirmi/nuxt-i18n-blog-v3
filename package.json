@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.9.0",
-    "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
