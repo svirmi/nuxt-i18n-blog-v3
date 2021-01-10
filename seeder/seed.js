@@ -4,7 +4,7 @@ const path = require('path');
 
 const content_dir = '../content';
 const locale_dirs = ['/ru/articles', '/en/articles', '/es/articles'];
-const x_posts = 4; // how many posts for each locale
+const x_posts = 23; // how many posts for each locale
 
 const createDir = (dirPath) => {
   fs.mkdirSync(dirPath, {recursive:true}, (error) => {

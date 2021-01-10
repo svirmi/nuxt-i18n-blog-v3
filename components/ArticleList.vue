@@ -12,7 +12,7 @@
         {{ article.title }}
       </nuxt-link>
     </h2>
-    <p class="text-sm pb-3">Published on April 25th, 2020</p>
+    <p class="text-sm pb-3">Published on {{ article.published }}</p>
     <p class="pb-6">{{ article.description }}</p>
     <p class="uppercase text-gray-800 hover:text-black">
       <nuxt-link :to="localePath({ name: 'articles-slug', params: { slug: article.slug } })" class="hover:opacity-75">
