@@ -3,35 +3,12 @@
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center">
         <h1 class="uppercase font-bold">
-          <a href="/" class="hover:no-underline">Nuxt Basic Blog</a>
+          <nuxt-link :to="localePath('index')" class="hover:no-underline">
+              Nuxt Basic Blog
+          </nuxt-link>
         </h1>
-        <div class="flex">
-          <a
-            href="/articles/rss.xml"
-            target="_blank"
-            class="hover:no-underline mx-2"
-          >
-            <RSS />
-          </a>
-          <a href="" target="_blank" class="hover:no-underline mx-2">
-            <Twitter />
-          </a>
-          <a href="" target="_blank" class="hover:no-underline mx-2">
-            <Github />
-          </a>
-        </div>
+        <LangSwitcher />
       </div>
     </div>
   </header>
 </template>
-
-<script>
-import RSS from '@/components/svg/RSS';
-import Github from '@/components/svg/Github';
-import Twitter from '@/components/svg/Twitter';
-
-export default {
-  name: 'Header',
-  components: { Twitter, Github, RSS },
-};
-</script>
