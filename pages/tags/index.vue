@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="w-full md:w-2/3 flex flex-col items-center px-3">
     <div class="flex justify-center">
       <h2
         class="text-center text-3xl mb-4 uppercase bg-black text-white inline-block mx-auto px-2"
@@ -16,13 +16,13 @@
         >
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'TagListPage',
-  async asyncData({ $content }) {
+  async asyncData({ $content, app }) {
     function onlyUnique(value, index, self) {
       return self.indexOf(value) === index;
     }
@@ -35,12 +35,12 @@ export default {
   },
   head() {
     return {
-      title: 'Article Tags - Learning Laravel and VueJS',
+      title: 'i18n nuxt.js blog',
       link: [
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: `${this.$config.baseUrl}${app.i18n.locale}/tags`,
+          href: `${this.$config.baseUrl}/tags`,
         },
       ],
     };

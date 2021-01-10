@@ -30,7 +30,7 @@ export default {
   },
   head() {
     return {
-      title: `Articles Page ${this.$route.params.page} - Learning Laravel and VueJS`,
+      title: `Articles Page ${this.$route.params.page} - i18n nuxt.js blog`,
       link: [
         {
           hid: 'canonical',
