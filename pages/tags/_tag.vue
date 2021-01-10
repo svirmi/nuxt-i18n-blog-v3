@@ -19,7 +19,7 @@ export default {
   components: {
     ArticleList,
   },
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, app, params }) {
     const source = `${app.i18n.locale}/articles`;
     const articles = await $content(source)
       .only(['title', 'description', 'image', 'slug', 'published', 'tags'])

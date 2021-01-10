@@ -27,12 +27,19 @@ const createFile = (filePath, fileContent) => {
 }
 
 const generateFileName = () => {
-  const d = faker.date.past()
-  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-  const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
-  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+  const date = faker.date.past()
+  const y = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+  const m = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
+  const d = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
-  return `${da}-${mo}-${ye}.md`;
+  return `${d}-${m}-${y}.md`;
+}
+
+const generateTags = () => {
+  const max_tags = 3; // max number of tags to generate
+  const n_tags = Math.floor(Math.random() * max_tags) + 1; // random integer between 1 and max_tags 
+  const tags = faker.random.words(n_tags).toLowerCase().split(' ').map(s => `'${s}'`).join(', ');
+  return tags;
 }
 
 const generateMD = (locale_dir) => {
@@ -42,8 +49,8 @@ title: "(${locale_dir}) :: ${faker.lorem.words()}"
 date: "${faker.date.past().toISOString()}"
 description: "${faker.lorem.paragraphs(2)}"
 image: 'https://res.cloudinary.com/redfern-web/image/upload/v1599840408/redfern-dev/png/nuxt.png'
-tags: ['VueJS', 'Nuxt']
-published: '2021-01-09'
+tags: [{{tags}}]
+published: "${faker.date.past().toISOString()}"
 ---
 <div class="bg-blue-800 text-white p-4 mb-4">
 ${faker.lorem.sentence()}
@@ -53,7 +60,9 @@ ${faker.lorem.paragraph()}
 ![${faker.random.word()}](${faker.random.image()})  
 ${faker.lorem.paragraphs(3)}  `  
 
-return fileContents;
+const tags = generateTags();
+
+return fileContents.replace("{{tags}}", tags);
 }
 
 // re-create content dir if exists
@@ -70,7 +79,7 @@ locale_dirs.forEach((locale_dir) => {
 // generate and save markdown files
 for (var i = 0; i < x_posts; i++) {
   const filename = generateFileName();  
-  
+
   locale_dirs.forEach((locale_dir) => {
     const fullPath = path.join(__dirname, content_dir, locale_dir, filename);   
     const postContent = generateMD(locale_dir);     
